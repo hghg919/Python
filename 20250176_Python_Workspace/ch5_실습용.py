@@ -242,11 +242,52 @@ print(cabinet)
 # (형식) 튜플명 = (값1, 값2, ...)
 
 # 빈 튜플 생성
+empty_tuple = ()
+empty_tuple2 = tuple()
+print(empty_tuple, empty_tuple2)
 
 # 튜플의 값의 접근 : 인덱스를 이용
+menu = ("돈가스", "치즈돈가스")
+print(menu[0]) # 0번 인덱스의 값을 선택
+print(menu[1]) # 1번 인덱스의 값을 선택
 
-# 튜플을 이용하면 변수들의 값을 손쉽게 변경 가능능
+# 튜플을 이용하면 변수들의 값을 손쉽게 변경 가능
+name = "피글렛"
+age = 20
+hobby = "코딩"
+print(name, age, hobby)
 
+(name, age, hobby) = ("피글렛", 20, "코딩")
+print(name, age, hobby)
+
+(name, age, hobby) = ("푸우", 25, "등산")
+print(name, age, hobby)
+
+(departure, arrival) = ("김포", "제주")
+print(departure, ">", arrival) # 김포 > 제주
+(departure, arrival) = (arrival, departure) # = ("제주", "김포")
+print(departure, ">", arrival) # 제주 > 김포
+
+# 튜플의 값을 변경하고 싶다면???
+# - 원칙적으로는 변경을 허용하지 않음
+tup1 = (10, 20, 30)
+print(tup1)
+
+# tup1[2] = 40
+# print(tup1) # 읽기 전용이기 때문에 값을 변경하지 못함
+
+# 값을 변경해야 한다면???
+# -리스트 타입으로 전환 후 값을 변경하고 다시 튜플 타입으로 전환
+list1 = list(tup1)
+list1[2] = 40
+tup1 = tuple(list1)
+print(tup1)
+
+# 하나의 값만 가지고 있는 튜플을 정의할 때 주의 필요!!!!!!!
+tup2 = (10)
+print(tup2, type(tup2))
+tup3 = (20,) # 콤마 추가! 
+print(tup3, type(tup3))
 
 ##################################################
 # 5.4. 세트(Set)
@@ -257,37 +298,75 @@ print(cabinet)
 # (형식) 세트명 = {값1, 값2, ...}
 
 # 같은 값을 여러 번 넣어도 하나만 저장
+my_set = {1, 2, 3, 3, 3}
+print(my_set)
 
 # 세트 변수 선언
+java = {"푸", "피글렛", "티거"} # 자바 개발자 세트
+python = set(["푸", "이요르"]) # 파이썬 개발자 세트
+# - 세트는 순서를 보장하지 않으므로 출력할 때마다 순서 바뀜
+print(java, python)
 
 # 빈 세트 생성
+empty_set1 = {} # empty_set1의 타입은 세트? ==> 딕셔너리 타입
+empty_set2 = set()
+print(type(empty_set1), type(empty_set2))
 
 # 교집합
 # - 두 집합에서 공통 값을 뽑아내는 기능
 # - & 기호나 intersection() 함수 이용
 # (자바와 파이썬을 모두 다룰 수 있는 개발자)
+print(java & python)
+print(python & java)
+print(java.intersection(python))
+print(python.intersection(java))
 
 # 합집합
 # - 두 집합을 합치는 기능
 # - | (파이프, pipe) 기호나 union() 함수 사용
 # (자바 또는 파이썬을 다룰 수 있는 개발자)
+print(java | python)
+print(java.union(python))
+print(python.union(java))
 
 # 차집합
 # - 한 집합에서 다른 집합을 제외하는 기능
 # - - (마이너스) 기호 또는 difference() 함수 사용
 # (자바는 할 수 있지만 파이썬은 할 줄 모르는 개발자)
+print(java - python)
+print(java.difference(python))
+# 차집합은 교환법칙이 성립하지 않기 때문에 바꾸면 다른 결과 출력
+print(python.difference(java))
 
 # add() 함수
 # - 집합에 값을 추가할 때 사용
 # 파이썬 개발자 추가 (기존 개발자: 푸, 이요르)
+python.add("피글렛")
+print(python)
 
 # remove() 함수
 # - 집합에서 값을 제외할 때 사용
 # 자바 개발자 삭제(기존 개발자: 푸, 피글렛, 티거)
+java.remove("피글렛")
+print(java)
 
-
-##################################################
+####################################################
 # 5.5. 자료구조 변환하기
 
 # - 필요에 따라 다른 자료구조로 변환
 # - 변환 방법 : 바꾸고 싶은 자료구조를 나타내는 명령어의 소괄호 안에 바꿀 자료구조명을 넣음
+menu = {"커피", "우유", "주스"}
+print(menu)
+print(type(menu))
+
+menu = list(menu) # 리스트로 변환
+print(menu, type(menu))
+
+menu = tuple(menu) # 튜플로 변환
+print(menu, type(menu))
+
+menu = set(menu) # 세트로 변환
+print(menu, type(menu))
+
+menu = dict(menu) # 딕셔너리로 변환
+print(menu, type(menu))
