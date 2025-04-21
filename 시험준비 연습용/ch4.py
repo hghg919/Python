@@ -7,9 +7,17 @@
 # - 같은 종류의 따옴표를 사용
 sentence1 = '나는 소년입니다.'
 print(sentence1)
-
+"""
+dddcla
+"""
 sentence2 = "나는 소녀입니다."
 print(sentence2)
+
+sentence3 = """
+나는 소년이고.
+파이썬은 쉬워요.
+"""
+print(sentence3)
 
 # 다른 종류의 따옴표를 써서 문자열 표시하면 에러 발생
 # sentence3 = "나는 어른입니다.'
@@ -181,3 +189,27 @@ print("Redd\bApple")
 
 # 4.5.6. Tab 키 (\t)
 print("Red\tApple")
+
+################################################
+
+# 실습 문제 : 비밀번호 만들기
+
+url = "http://naver.com"
+# url = "http://daum.net" # dau40!
+# url = "http://google.com" # goo61!
+# url = "http://youtube.com" # you71!
+
+my_str = url.replace("http://", "")
+print(my_str)
+# naver.com일 때 my_str.index(".")의 결과는 5
+# 따라서 다음 무장은 my_str = my_str[0:5]와 같음
+my_str = my_str[:my_str.index(".")] # naver
+print(my_str)
+password = my_str[0:3] + str(len(my_str)) + str(my_str.count("e")) + "!"
+print("{0}의 비밀번호는 {1}입니다."  .format(url, password))
+print(f"{url}의 비밀번호는 {password}입니다.")
+
+# 셀프체크
+proverb = "the early bird catches the worm"
+print(proverb[0].upper() + proverb[1:].lower())
+print(proverb.capitalize()) # 첫글자는 대문자로, 나머지는 소문자로 변경``
