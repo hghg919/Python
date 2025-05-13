@@ -16,10 +16,11 @@
 # 7.1.1. 실습 : 은행 계좌 개설하기
 
 # 함수 정의(definition)
-
-
+#def open_account():
+#    print("새로운 계좌를 개설합니다.")
+#
 # 앞에 정의한 open_account() 함수 호출(call)
-
+#open_account()
 
 # 함수명 짓기 (p.193 Note 내용 참고)
 
@@ -40,6 +41,18 @@
 #     return 반환값
 
 # 7.2.1. 실습 : 입금하기
+#def open_account():
+#    print("새로운 계좌를 개설합니다.")
+#
+#open_account()
+#
+#def deposit(balance, money):
+#    print("{0}원을 입금했습니다. 잔액은 {1}원입니다.".format(money, balance + money))
+#    return balance + money
+#
+#balance = 0 # 초기 잔액
+#balance = deposit(balance, 1000) # 1,000원 입금 
+#deposit(blance, 10000) # 함수의 반환값을 사용하려면 저장할 변수에 대입해야 함
 
 # balance 변수의 구분
 # - 함수 호출 시 : 함수에 값을 전달하는 역할
@@ -50,11 +63,49 @@
 
 
 # 7.2.2. 실습 : 출금하기
+#def open_account():
+#   print("새로운 계좌를 개설합니다.")
+#
+#open_account()
+#
+#def deposit(balance, money):
+#   print("{0}원을 입금했습니다. 잔액은 {1}원입니다.".format(money, balance + money))
+#   return balance + money
+#
+#def withdraw(balance, money):
+#   if balance >= money:
+#      print("{}원을 출금했습니다. 잔액은 {}원입니다.".format(money, balance - money))
+#      return balance - money
+#   else:
+#      print("잔액이 부족합니다. 잔액은 {}원입니다.".format(balance))
+#      return balance
+#   
+#balance = 0
+#balance = deposit(balance, 1000)
+#
+#balance = withdraw(balance, 2000)
+#balance = withdraw(balance, 500)
+#
+## 7.2.3. 실습 : 수수료 부과하기
+#def withdraw_night(balacne, money):
+#   commission = 100
+#   print("업무 시간 외에 {}원을 출금했습니다.".format(money))
+#   return commission, balacne - money - commission
+#
+#balance = 0
+#balance = deposit(balance, 1000)
+#
+#commission, balance = withdraw_night(balance, 500)
+#print("수수료 {}원이며, 잔액은 {}원입니다.".format(commission, balance))
 
+(name, age, hobby) = ("피글렛", 20, "코딩")
+print(name, age, hobby)
 
-# 7.2.3. 실습 : 수수료 부과하기
+name, age, hobby = ("피글렛", 20, "코딩")
+print(name, age, hobby)
 
-
+name, age, hobby = "피글렛", 20, "코딩"
+print(name, age, hobby)
 
 ##################################################
 # 7.3. 함수 호출하기
