@@ -98,67 +98,106 @@
 #commission, balance = withdraw_night(balance, 500)
 #print("수수료 {}원이며, 잔액은 {}원입니다.".format(commission, balance))
 
-(name, age, hobby) = ("피글렛", 20, "코딩")
-print(name, age, hobby)
-
-name, age, hobby = ("피글렛", 20, "코딩")
-print(name, age, hobby)
-
-name, age, hobby = "피글렛", 20, "코딩"
-print(name, age, hobby)
+#(name, age, hobby) = ("피글렛", 20, "코딩")
+#print(name, age, hobby)
+#
+#name, age, hobby = ("피글렛", 20, "코딩")
+#print(name, age, hobby)
+#
+#name, age, hobby = "피글렛", 20, "코딩"
+#print(name, age, hobby)
 
 ##################################################
 # 7.3. 함수 호출하기
 
 # 7.3.1. 기본값 사용하기
 # 기본값 : 함수에서 매개변수에 미리 지정해 둔 값
-
+# def profile(name, age, main_lang):
+    # print("이름 : {0}\t나이: {1}\t주 사용 언어 : {2}".format(name, age, main_lang))
+# 
+# profile("찰리", 20, "파이썬")
+# profile("루시", 25, "자바")
 
 # 찰리와 루시가 나이도 같고 주 사용 언어도 같다면?
 # - 기본값이 있으면 전달값을 일일이 적지 않아도 됨
-
+#def profile(name, age=20, main_lang="파이썬"):
+#    print("이름 : {0}\t나이: {1}\t주 사용 언어 : {2}".format(name, age, main_lang))
+#
+#profile("찰리")
+#profile("루시")
+#profile("찰리", 22)
+#profile("찰리", 24, "자바")
 
 # 기본값과 전달값 중 전달값을 우선적으로 사용    
 
 # 전달값 작성 순서
 # - 일반 전달값과 기본값이 있는 전달값을 함께 사용하는 경우
 # - 반드시 일반 전달값을 먼저 적어야 함
+#def buy(item1, item2="음료수"):
+#    print(item1, item2)
+#
+#buy("빵")    
 
-
+#def buy(item1="음료수", item2):
+#    print(item1, item2)
+#
+#buy("빵")    
 
 # 7.3.2. 키워드 인자 사용하기기
 # 키워드 인자(keyword argument)
 # - 함수를 호출할 때 어떤 매개변수에 값을 전달할지 명시적으로 지정하는 것
-
+#def profile(name, age, main_lang):
+#    print("이름 : {0}\t나이: {1}\t주 사용 언어 : {2}".format(name, age, main_lang))
 
 # 전달하려는 값의 순서에 구매받지 않음
-
+#profile(main_lang="자바", age=25, name="루시")
+#profile(name="찰리", main_lang="파이썬", age=20)
 
 # 키워드 인자는 어떤 함수가 다양한 매개변수를 제공하는데 모두 기본값을 가지는 경우
 # 대부분 기본값을 쓰고 일부 매개변수만 값을 지정하고자 할 때 유용
-
+#def profile(name="홍길동", age=20, main_lang="파이썬"):
+#    print("이름 : {0}\t나이: {1}\t주 사용 언어 : {2}".format(name, age, main_lang))
+#
+#profile()
+#profile(age=28, name="정현준")
 
 # 일반 전달값과 키워드 인자를 함께 사용해 함수를 호출할 경우
 # - 반드시 일반 전달값을 순서대로 먼저 적은 후 키워드 인자를 적어야 함
-
+#def profile(name, age, main_lang):
+#   print("이름 : {0}\t나이: {1}\t주 사용 언어 : {2}".format(name, age, main_lang))
+#
+#profile("찰리", age=20, main_lang="파이썬")
+#profile(name="찰리", 20, "파이썬")
 
 # 위치 인자(positional argument)
 # - 함수에서 정의된 순서대로 입력하는 전달값
-
+#def profile(name, age, main_lang):
+#    print(name, age, main_lang)
+#
+#profile("찰리", 20, "파이썬")
 
 # 7.3.3. 가변 인자 사용하기
 
 # 사용할 수 있는 언어의 종류를 5개까지 입력 받도록 수정
+#def profile(name, age, lang1, lang2, lang3, lang4, lang5):
+#    print("이름 : {}\t나이 :{}\t".format(name, age))
+#    print(lang1, lang2, lang3, lang4, lang5)
 
-
-# 사용할 수 있는 프로그래밍 언어sadfsdafasdf
+# 사용할 수 있는 프로그래밍 언어
 # - 찰리 : 파이썬, 자바, C, C++, C#
 # - 루시 : 코틀린, 스위프트
-
+#profile("찰리", 20, "파이썬", "자바", "C", "C++", "C#")
+#profile("루시", 25, "코틀린", "스위프트", "", "", "")
 
 
 # (형식) print(출력할 내용, sep=" ", end="\n", file=None, flush=False)
-
+#def profile(name, age, lang1, lang2, lang3, lang4, lang5):
+#   # 줄 바꿈 대신 띄어쓰기
+#   print("이름 : {}\t나이 :{}\t".format(name, age), end="")
+#   print(lang1, lang2, lang3, lang4, lang5)
+#
+#profile("찰리", 20, "파이썬", "자바", "C", "C++", "C#")
+#profile("루시", 25, "코틀린", "스위프트", "", "", "")
 
 # 출력해야 하는 사람이 많아지거나 사용하는 언어의 수가 더 많아지면 어떻게 해야 할까?
 
@@ -174,12 +213,35 @@ print(name, age, hobby)
 #     ...
 #     return 반환값
 
+#def profile(name, age, *language):
+#   print("이름 : {}\t나이 :{}\t".format(name, age), end="")
+#   print(language, type(language))
+#
+#profile("찰리", 20, "파이썬", "자바", "C", "C++", "C#", "자바스크립트")
+#profile("루시", 25, "코틀린", "스위프트")
 
 
 # for 반복문을 이용하여 프로그래밍 언어를 튜플 형태가 아닌 기존처럼 하나씩 출력하도록 수정
+#def profile(name, age, *language):
+#   print("이름 : {}\t나이 :{}\t".format(name, age), end=" ")
+#   #print(language, type(language))
+#   for lang in language:
+#      print(lang, end=" ")
+#   print()
+#
+#profile("찰리", 20, "파이썬", "자바", "C", "C++", "C#", "자바스크립트")
+#profile("루시", 25, "코틀린", "스위프트")
 
 # 함수 안에서 함수 호출하기
-
+#def add(item):
+#    print(item, "붓기")
+#
+#def americano():
+#    add("뜨거운 물")    
+#    add("에스프레소")
+#
+#print("아메리카노 만드는 법")
+#americano()        
 
 ##################################################
 # 7.4. 변수의 범위 : 지역변수와 전역변수
@@ -206,3 +268,38 @@ print("남은 3D 안경 개수: {0}".format(glasses))
 # - global 키워드
 #   : 변수 앞에 global을 붙이면 전역변수를 함수 안에서 사용하겠다는 의미
 
+# 1) 첫번째 방법 : 지역변수를 쓰기 전에 값ㅇ르 초기화(할당)
+#glasses = 10 # 전체 3D 안경 개수: 10개
+#
+#def rent(people): # 3D 안경을 대여한 관객 수
+#    glasses = 10 # 지역변수 glasses 사용하기 전에 값을 (초기화)할당
+#    glasses = glasses - people # 잔여 3D 안경 개수 = 전체 개수 - 대여한 개수 
+#    print("[함수 내부] 남은 3D 안경 개수: {0}".format(glasses))
+#
+#print("전체 3D 안경 개수: {0}".format(glasses))
+#rent(2) # 3D 안경을 대여한 관객이 2명일 때
+#print("남은 3D 안경 개수: {0}".format(glasses))
+
+# 2) 두번째 방법 : 함수 내부에서 전역변수를 가져와서 쓰기 (global 키워드 사용)
+#glasses = 10 # 전체 3D 안경 개수: 10개
+#
+#def rent(people): # 3D 안경을 대여한 관객 수
+#    global glasses
+#    glasses = glasses - people # 잔여 3D 안경 개수 = 전체 개수 - 대여한 개수 
+#    print("[함수 내부] 남은 3D 안경 개수: {0}".format(glasses))
+#
+#print("전체 3D 안경 개수: {0}".format(glasses))
+#rent(2) # 3D 안경을 대여한 관객이 2명일 때
+#print("남은 3D 안경 개수: {0}".format(glasses))
+
+#3) 세번째 방법 :
+glasses = 10 # 전체 3D 안경 개수: 10개
+
+def rent_return(glasses, people): # 전체 3D 안경 수와 대여 관객 수를 전달받음
+    glasses = glasses - people # 전달값을 담은 glasses 사용 
+    print("[함수 내부] 남은 3D 안경 개수: {0}".format(glasses))
+    return glasses
+
+print("전체 3D 안경 개수: {0}".format(glasses))
+glasses = rent_return(glasses, 2) # 3D 안경을 대여한 관객이 2명일 때
+print("남은 3D 안경 개수: {0}".format(glasses))
