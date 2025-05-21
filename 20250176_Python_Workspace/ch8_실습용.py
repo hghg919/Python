@@ -1,21 +1,31 @@
 ## 입출력
 
-##################################################
+################################################################
 # 8.1. 표준 입력받기: input()
 
 # 표준 입력 : 표준 입력 장치인 키보드로 값을 입력받는 것
 # - input() : 사용자로부터 어떤 값을 입력받는 용도로 사용하는 표준 입력 함수
 
-# answer = input("아무 값이나 입력하세요 : ")
-# print("입력한 값은 " + answer + "입니다.")
+#answer = input("아무 값이나 입력하세요 : ")
+#print("입력한 값은 " + answer + "입니다.")
+#
+## 입력값은 항상 문자열을 인식!!!
+#print(type(answer))
+#
+## 숫자를 입력받아 연산하려는 경우에는 형변환해야 함
+#print(type(int(answer)))
+#answer = 10
+#print(type(answer))
 
-# 입력값은 항상 문자열을 인식!!!
+# 여러개의 값을 동시에 입력받을 때
+#num1, num2 = input("두 개의 숫자를 입력하세요 : ").split(" ")
+#
+#num1 = int(num1)
+#num2 = int(num2)
+#print("두 숫자의 합은 : ", num1 + num2)
 
 
-# 숫자를 입력받아 연산하려는 경우에는 형변환해야 함
-
-
-##################################################
+###################################################################################
 # 8.2. 표준 출력 시 유용한 기능
 
 # 표준 출력 : 기본 출력 장치를 통해 프로그램을 수행한 결과를 사용자에게 보여주는 것 (예: VSCode 터미널)
@@ -24,45 +34,62 @@
 # 8.2.1. 구분자 넣기: sep
 # - 여러 데이터를 지정한 값으로 구분
 
-# print("파이썬", "자바") # 한 칸 띄우고 문자열을 합침
-# print("파이썬" + "자바") # 띄어쓰기 없이 문자열을 합침
+#print("파이썬", "자바") # 한 칸 띄우고 문자열을 합침
+#print("파이썬" + "자바") # 띄어쓰기 없이 문자열을 합침
 
 # 값을 쉼표로 구분
+#print("파이썬", "자바", sep=",")
 
 # 값을 ' vs '로 구분
-
+#print("파이썬", "자바", "자바스크립트", sep=" vs ")
 
 # 8.2.2. 문장 끝 지정하기: end
 # - 문장 끝을 줄바꿈 대신 지정한 값으로 출력
 
 # 줄바꿈 없이 "? "를 출력하고 다음 출력내용을 기다림
+#print("파이썬", "자바", sep=", ", end="? ")
+#print("무엇이 더 재미있을까요?")
 
 # 기본값은 줄바꿈을 하고 다음 출력내용을 기다림
+#print("파이썬", "자바", sep=", ")
+#print("무엇이 더 재미있을까요?")
 
 
 # 8.2.3. 출력 위치 지정하기: file
 # - 출력 대상을 지정 (print() 문의 실행결과를 어디에 출력할지 지정)
+#import sys # sys 모듈을 가져와서 사용하겠다는 의미
 
+# 표준 출력에 결과를 출력
+#print("파이썬", "자바", file=sys.stdout)
+# 표준 오류에 결과를 출력 (오류가 발생했을 때 터미널에 오류 메시지를 출력하라는 의미)
+#print("파이썬", "자바", file=sys.stderr)
 
 # 8.2.4. 공간 확보해 정렬하기: ljust()와 rjust()
 # - ljust() : 미리 공간을 확보하고 왼쪽 정렬로 출력
 # - rjust() : 미리 공간을 확보하고 오른쪽 정렬로 출력
 
 # 3과목에 대한 성적 정보를 출력하는 예제 (동작원리는 p.230 그림 참고)
-# scores = {"수학": 0, "영어": 50, "코딩": 100}
-
+#scores = {"수학": 0, "영어": 50, "파이썬 코딩": 100} # 딕셔너리 자료구조
+#
+#for subject, score in scores.items(): # (key, value)
+#    print(subject, score)
 
 # ljust(), rjust() 함수로 정렬해서 깔끔하게 출력 (동작원리는 p.231 그림 참고)
-# scores = {"수학": 0, "영어": 50, "코딩": 100}
+#scores = {"수학": 0, "영어": 50, "코딩": 100}
+#
+#for subject, score in scores.items(): # (key, value)
+#    print(subject.ljust(8), str(score).rjust(4), sep=":")
 
 
 # 8.2.5. 빈칸 0으로 채우기: zfill()
 # - zfill() : 미리 공간을 확보하고 빈칸을 0으로 채움 (동작원리는 p.232 그림 참고)
 
-# for num in range(1, 21): # 1~20의 숫자
-#     print("대기번호 : " + str(num))
+#for num in range(1, 21): # 1~20의 숫자
+#    print("대기번호 : " + str(num))
 
 # 은행의 대기번호처럼 3자리로 표시하고 자릿값이 비어 있을 때는 0으로 채워 넣음
+#for num in range(1, 21): # 1~20의 숫자
+#    print("대기번호 : " + str(num).zfill(3))
 
 
 ##################################################
@@ -70,20 +97,30 @@
 # - 원하는 형태의 출력 포맷을 지정하는 용도로 사용용
 
 # {0} 위치에 값 500 출력
-# print("{0}".format(500)) 
+#print("{0}".format(500))
 
 # 빈칸으로 두기, 오른쪽 정렬, 공간 10칸 확보 (동작원리는 p.234 그림 참고)
+#print("{0: >10}".format(500))
 
 # 빈칸으로 두기, 오른쪽 정렬, + 기호 붙이기, 공간 10칸 확보 (동작원리는 p.235 그림 참고)
+#print("{0: >+10}".format(500))
+#print("{0: >+10}".format(-500))
 
 # 빈칸을 _로 채우기, 왼쪽 정렬, 공간 10칸 확보 (동작원리는 p.235 그림 참고)
+#print("{0:_<10}".format(500))
 
 # 큰 수를 확인하기 쉽도록 3자리마다 쉽표 표시
+#print("{0:,}".format(100000000000)) # 3자리마다 쉼표 찍기
+#print("{0:+,}".format(100000000000))
+#print("{0:+,}".format(-100000000000))
 
 # 빈칸을 ^로 채우기, 왼쪽 정렬, + 기호 붙이기, 공간 30칸 확보, 3자리마다 쉼표 찍기
+#print("{0:^<+30,}".format(100000000000))
 
 # 소수점을 포함하는 실수 출력
-
+#print("{0}".format(5 / 3))
+#print("{0:f}".format(5 / 3))
+#print("{0:.2f}".format(5 / 3))
 
 # 출력 형식 정리 (p.237 형식 참고)
 
@@ -95,14 +132,25 @@
 # (형식) open("파일명", "모드", encoding="인코딩 형식")
 # - 파일 열기 모드 (p.238 표 8-1 참고)
 # - 모든 파일은 열고 나면 반드시 닫아줘야 함 (close() 함수)
-
+#score_file = open("score.txt", "w", encoding="utf8")
+#print("수학 : 0", file=score_file)
+#print("영어 : 50", file=score_file)
+## 주의! : 파일을 열고 나면 항상 마지막에 파일을 닫아줘야 함
+# score_file.close() # score.txt 파일 닫기
 
 # 8.4.2. 파일 쓰기: write()
-
+#score_file = open("score.txt", "a", encoding="utf8")
+# write() 함수는 줄바꿈을 해주지 않으므로 \n을 마지막에 추가
+#score_file.write("과학 : 80\n")
+#score_file.write("코딩 : 100\n")
+#score_file.close()
 
 # 8.4.3. 파일 읽기: read(), readline(), readlines()
 
 # (1) read() : 파일 내용을 한꺼번에 읽어 오기
+#score_file = open("score.txt", "r", encoding="utf8")
+#print(score_file.read())
+#score_file.close()
 
 # (2) readline() : 파일 내용을 한 줄씩 읽어 오기
 
@@ -117,9 +165,24 @@
 # score_file.close()
 
 # while 반복문을 사용한 파일 내용 한 줄씩 읽어 오기
+#score_file = open("score.txt", "r", encoding="utf8")
+#
+#while True:
+#    line = score_file.readline()
+#    if not line:
+#        break
+#    print(line, end="")
+#
+#score_file.close()
 
 # (3) readlines() : 파일 내용을 줄 단위로 나뉜 리스트 형태로 한꺼번에 읽어 오기
-
+# score_file = open("score.txt", "r", encoding="utf8")
+# 
+# lines = score_file.readlines()
+# for line in lines:
+#    print(line, end="")
+# 
+# score_file.close()
 
 ##################################################
 # 8.5. 데이터를 파일로 저장하기: pickle 모듈
