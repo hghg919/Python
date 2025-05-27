@@ -196,7 +196,23 @@
 # - 텍스트 파일: 사람이 읽을 수 있는 글자(한글, 영어, 숫자 등)로 이루어진 파일로, 보통 txt 형식으로 저장
 # - 바이너리 파일: 컴퓨터가 인식할 수 있는 이진수(0과 1)로 이루어진 파일로, JPG, PNG 같은 이미지 파일, MP3와 같은 음악 파일, EXE와 같은 실행 파일 등이 해당
 
+# pickle 모듈 가져다 쓰기
+#import pickle
 
+# 바이너리 형태로 쓰고 저정하는 코드
+#profile_file = open("profile.pickle", "wb")
+#profile = {"이름" : "스누피", "나이" : 30, "취미" : ["축구", "골프", "코딩"]}
+#print(profile)
+#
+#pickle.dump(profile, profile_file) # profile 데이터를 파일에 저장
+#profile_file.close()
+#
+## 바이너리 형태로 저장된 파일에서 내용 읽어오기
+#profile_file = open("profile.pickle", "rb")
+#profile = pickle.load(profile_file)
+#
+#print(profile)
+#profile_file.close()
 
 ##################################################
 # 8.6. 파일 한 번에 열고 닫기: with 문
@@ -210,6 +226,16 @@
 #            ...
 
 # pickle 모듈로 "profile.pickle" 파일에 썼던 내용 읽기를 with문으로 작성
-
+#import pickle
+#
+#with open("profile.pickle", "rb") as profile_file:
+#    print(pickle.load(profile_file))
 
 # "study.txt" 파일에 내용을 읽고 쓰기를 with문으로 작성
+#import pickle
+#
+#with open("study.txt", "w", encoding="utf8") as study_file:
+#    study_file.write("파이썬을 열심히 공부하고 있어요.")
+#
+#with open("study.txt", "r", encoding="utf8") as study_file:
+#    print(study_file.read())    
