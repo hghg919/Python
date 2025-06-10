@@ -47,5 +47,3 @@ def attack(name, location, damage):
 attack(name, "1시", damage)
 attack(tank_name, "1시", tank_damage)
 attack(tank2_name, "1시", tank2_damage)
-
-# 쌋드리요 마인. 리조랄. 리시빙. 내가 돌아왔다. 리사쑤 아우고와. 울라리 울리
