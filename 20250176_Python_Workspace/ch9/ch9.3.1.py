@@ -14,10 +14,11 @@
 # 공격을 할 수 없는 유닛을 구현하려면? (AttackUnit 클래스로 객체를 생성할 수 없음)
 # : Unit 클래스를 일반적인 유닛을 위한 클래스로 수정
 # : AttackUnit 클래스는 유닛의 공통 요소(name, hp)를 상속 받아서 사용
+
 class Unit:
     def __init__(self, name, hp):
-        self.name = name
-        self.hp = hp
+        self.name = name # 모든 Unit들의 공통 속성 (이름)
+        self.hp = hp     # 모든 Unit들의 공통 속성 (체력)
 
 class AttackUnit(Unit): # Unit 클래스 상속
     def __init__(self, name, hp, damage):
@@ -40,7 +41,7 @@ class AttackUnit(Unit): # Unit 클래스 상속
 flamethrower1 = AttackUnit("화염방사병", 50, 16)
 flamethrower1.attack("5시") # 5시 방향으로 공격 명령
 
-# 콩콩콩까지마
+# 25만큼의 공격을 2번 받음
 flamethrower1.damaged(25) # 남은 체력 25
 flamethrower1.damaged(25) # 남은 체력 0
 
